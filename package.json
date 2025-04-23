@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "axios": "^1.8.4",
+    "zod": "^3.24.3"
+  },
+  "name": "shardeum-mcp-server",
+  "version": "1.0.0",
+  "description": "mcp server that one can use to query info on the Shardeum Blockchain",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcp"
+  ],
+  "author": "Abdul Azeem Shaik",
+  "license": "ISC"
+}
