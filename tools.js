@@ -55,13 +55,13 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
     async (args) => {
       try {
         console.error(
-          `Getting balance for address: ${args.address} at block: ${args.blockParameter}`
+          `Getting balance for address: ${args.address} at block: ${args.blockParameter}`,
         );
 
         const balance = await makeRpcCall(
           "eth_getBalance",
           [args.address, args.blockParameter],
-          rpcUrl
+          rpcUrl,
         );
         // Convert hex balance to decimal and then to ETH for readability
         const balanceWei = parseInt(balance, 16);
@@ -90,7 +90,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_blockNumber - Get the current block number
@@ -124,7 +124,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getTransactionCount - Get transaction count for an address
@@ -148,7 +148,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const txCount = await makeRpcCall(
           "eth_getTransactionCount",
           [args.address, args.blockParameter],
-          rpcUrl
+          rpcUrl,
         );
         const txCountDecimal = parseInt(txCount, 16);
 
@@ -171,7 +171,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getBlockTransactionCountByHash
@@ -187,13 +187,13 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
     async (args) => {
       try {
         console.error(
-          `Getting transaction count for block hash: ${args.blockHash}`
+          `Getting transaction count for block hash: ${args.blockHash}`,
         );
 
         const txCount = await makeRpcCall(
           "eth_getBlockTransactionCountByHash",
           [args.blockHash],
-          rpcUrl
+          rpcUrl,
         );
         const txCountDecimal = parseInt(txCount, 16);
 
@@ -216,7 +216,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getBlockTransactionCountByNumber
@@ -232,13 +232,13 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
     async (args) => {
       try {
         console.error(
-          `Getting transaction count for block number: ${args.blockNumber}`
+          `Getting transaction count for block number: ${args.blockNumber}`,
         );
 
         const txCount = await makeRpcCall(
           "eth_getBlockTransactionCountByNumber",
           [args.blockNumber],
-          rpcUrl
+          rpcUrl,
         );
         const txCountDecimal = parseInt(txCount, 16);
 
@@ -261,7 +261,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_estimateGas
@@ -295,7 +295,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const gasEstimate = await makeRpcCall(
           "eth_estimateGas",
           [params],
-          rpcUrl
+          rpcUrl,
         );
         const gasEstimateDecimal = parseInt(gasEstimate, 16);
 
@@ -318,7 +318,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getBlockByHash
@@ -342,7 +342,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const blockData = await makeRpcCall(
           "eth_getBlockByHash",
           [args.blockHash, args.fullTransactions],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -364,7 +364,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getBlockByNumber
@@ -388,7 +388,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const blockData = await makeRpcCall(
           "eth_getBlockByNumber",
           [args.blockNumber, args.fullTransactions],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -410,7 +410,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getBlockReceipts - Not a standard RPC method, might need custom implementation or omission
@@ -429,7 +429,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const receipts = await makeRpcCall(
           "eth_getBlockReceipts",
           [args.blockNumberOrHash],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -451,7 +451,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getTransactionByHash
@@ -471,7 +471,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const txData = await makeRpcCall(
           "eth_getTransactionByHash",
           [args.txHash],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -493,7 +493,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getTransactionByBlockHashAndIndex
@@ -517,7 +517,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const txData = await makeRpcCall(
           "eth_getTransactionByBlockHashAndIndex",
           [args.blockHash, args.transactionIndex],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -539,7 +539,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getTransactionByBlockNumberAndIndex
@@ -563,7 +563,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const txData = await makeRpcCall(
           "eth_getTransactionByBlockNumberAndIndex",
           [args.blockNumber, args.transactionIndex],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -585,7 +585,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_getTransactionReceipt
@@ -605,7 +605,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const receiptData = await makeRpcCall(
           "eth_getTransactionReceipt",
           [args.txHash],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -627,7 +627,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // eth_chainId
@@ -661,7 +661,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // Shardeum-specific tools
@@ -694,7 +694,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
               limit: args.limit,
             },
           ],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -716,7 +716,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // shardeum_getNetworkAccount
@@ -731,7 +731,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const networkAccount = await makeRpcCall(
           "shardeum_getNetworkAccount",
           [],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -753,7 +753,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 
   // shardeum_getCycleInfo
@@ -765,7 +765,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         .number()
         .optional()
         .describe(
-          "Specific cycle number to query. If not provided, returns current cycle."
+          "Specific cycle number to query. If not provided, returns current cycle.",
         ),
     },
     async (args) => {
@@ -775,7 +775,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
         const cycleInfo = await makeRpcCall(
           "shardeum_getCycleInfo",
           args.cycleNumber !== undefined ? [args.cycleNumber] : [],
-          rpcUrl
+          rpcUrl,
         );
 
         return {
@@ -797,7 +797,7 @@ function registerTools(server, rpcUrl = DEFAULT_RPC_URL) {
           isError: true,
         };
       }
-    }
+    },
   );
 }
 

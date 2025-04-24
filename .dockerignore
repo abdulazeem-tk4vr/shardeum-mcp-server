@@ -1,0 +1,39 @@
+# Version control
+.git
+.gitignore
+
+# Dependency directories
+node_modules
+npm-debug.log
+
+# Build outputs
+dist
+build
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+docs
+
+# Editor and OS files
+.idea
+.vscode
+*.swp
+.DS_Store
+Thumbs.db
+
+# Test files
+test
+tests
+__tests__
+coverage
+
+# Temporary files
+*.log
+logs
+tmp

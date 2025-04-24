@@ -1,20 +1,37 @@
 {
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.10.2",
-    "axios": "^1.8.4",
-    "zod": "^3.24.3"
-  },
   "name": "shardeum-mcp-server",
   "version": "1.0.0",
-  "description": "mcp server that one can use to query info on the Shardeum Blockchain",
+  "description": "Model Context Protocol (MCP) Server for Shardeum blockchain interaction",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abdulazeem-tk4vr/shardeum-mcp-server"
+  },
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
+    "docker:start": "node start.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "mcp"
+    "shardeum",
+    "blockchain",
+    "mcp",
+    "ethereum",
+    "rpc"
   ],
-  "author": "Abdul Azeem Shaik",
-  "license": "ISC"
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "axios": "^1.6.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

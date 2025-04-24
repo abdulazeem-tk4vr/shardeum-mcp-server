@@ -38,7 +38,7 @@ Provide contextual insights into the account's financial status and blockchain i
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_blockNumber - Current Block Number
@@ -95,7 +95,7 @@ Provide insights into the account's blockchain interaction and significance.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getBlockTransactionCountByHash - Block Transaction Count by Hash
@@ -126,7 +126,7 @@ Provide context about the block's significance and network performance.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getBlockTransactionCountByNumber - Block Transaction Count by Number
@@ -157,7 +157,7 @@ Provide insights into the block's role in the blockchain ecosystem.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_estimateGas - Gas Estimation
@@ -202,7 +202,7 @@ ${args.data ? "- Custom data present" : "No custom data"}`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getBlockByHash - Block Details by Hash
@@ -242,7 +242,7 @@ Provide deep insights into the block's role in the blockchain ecosystem.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getBlockByNumber - Block Details by Number
@@ -282,7 +282,7 @@ Provide comprehensive insights into the block's significance.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getBlockReceipts - Block Receipts
@@ -312,7 +312,7 @@ Provide forensic insights into the block's transaction execution.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getTransactionByHash - Transaction Details
@@ -344,7 +344,7 @@ Provide detailed insights into the transaction's significance and characteristic
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getTransactionByBlockHashAndIndex - Transaction by Block Hash and Index
@@ -379,7 +379,7 @@ Provide comprehensive analysis of the transaction's role and significance.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getTransactionByBlockNumberAndIndex - Transaction by Block Number and Index
@@ -414,7 +414,7 @@ Provide insights into the transaction's significance within its block.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_getTransactionReceipt - Transaction Receipt
@@ -446,7 +446,7 @@ Provide comprehensive insights into the transaction's final outcome.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // eth_chainId - Chain Identification
@@ -503,7 +503,7 @@ Provide detailed insights into the Shardeum network's node ecosystem.`,
           },
         },
       ],
-    })
+    }),
   );
 
   // shardeum_getNetworkAccount - Network Account
@@ -560,7 +560,7 @@ Provide comprehensive insights into the Shardeum network's current operational c
           },
         },
       ],
-    })
+    }),
   );
 }
 

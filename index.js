@@ -14,7 +14,7 @@ console.log = function () {
 const config = {
   name: "shm-mcp",
   version: "1.0.0",
-  rpcUrl: "https://<add-network-name>.shardeum.org/", // https://localhost:4000
+  rpcUrl: process.env.RPC_URL || "https://api-testnet.shardeum.org/",
 };
 
 // Initialize the server
@@ -34,7 +34,7 @@ async function startServer() {
     await server.connect(new StdioServerTransport());
 
     console.error(
-      `${config.name} MCP Server (v${config.version}) is running...`
+      `${config.name} MCP Server (v${config.version}) is running...`,
     );
     console.error(`Connected to RPC: ${config.rpcUrl}`);
   } catch (err) {
