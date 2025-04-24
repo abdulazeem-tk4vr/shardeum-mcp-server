@@ -13,6 +13,8 @@ run:
   env:
     RPC_URL: https://api-testnet.shardeum.org/
 
+startCommand: node start.js
+
 # Metadata for the Smithery platform
 metadata:
   category: blockchain
