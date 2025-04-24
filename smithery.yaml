@@ -13,7 +13,10 @@ run:
   env:
     RPC_URL: https://api-testnet.shardeum.org/
 
-startCommand: node start.js
+startCommand:
+  command: node start.js
+  env:
+    RPC_URL: https://api-testnet.shardeum.org/
 
 # Metadata for the Smithery platform
 metadata:
