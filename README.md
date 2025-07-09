@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/abdulazeem-tk4vr-shardeum-mcp-server-badge.png)](https://mseep.ai/app/abdulazeem-tk4vr-shardeum-mcp-server)
+
 # Shardeum MCP Server
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
