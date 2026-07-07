@@ -1,130 +1,116 @@
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/abdulazeem-tk4vr-shardeum-mcp-server-badge.png)](https://mseep.ai/app/abdulazeem-tk4vr-shardeum-mcp-server)
-
-[![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/090acb1c-c4f6-4b74-8c9f-692c6e7d79f6)
-
 # Shardeum MCP Server
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Shardeum](https://img.shields.io/badge/Shardeum-Network-green)
-![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
+Model Context Protocol server for distributed-system inspection and developer workflows on Shardeum.
+
+This project exposes Shardeum network and RPC operations as structured MCP tools so AI agents, IDE assistants, and developer workflows can inspect distributed-system state through validated tool calls instead of ad hoc scripts. It is designed for agent-driven debugging, node/network inspection, and repeatable developer operations.
 
 [![smithery badge](https://smithery.ai/badge/@abdulazeem-tk4vr/shardeum-mcp-server)](https://smithery.ai/server/@abdulazeem-tk4vr/shardeum-mcp-server)
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/abdulazeem-tk4vr-shardeum-mcp-server-badge.png)](https://mseep.ai/app/abdulazeem-tk4vr-shardeum-mcp-server)
+[![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/090acb1c-c4f6-4b74-8c9f-692c6e7d79f6)
 
-<br>
+## What It Demonstrates
 
-## 🌐 Overview
+- MCP server implementation for AI-agent tool use
+- Structured tool-call interfaces over distributed-system RPC methods
+- Node, cycle, account, block, transaction, and receipt inspection
+- IDE integration with Cursor and MCP-compatible clients
+- Dockerized deployment path
+- Error handling around network and RPC failures
+- Security-reviewed MCP server listing through MseeP/Smithery badges
 
-The Shardeum MCP (Model Context Protocol) Server is a powerful blockchain interaction tool that provides comprehensive access to the Shardeum network through standardized RPC methods. It enables AI agents, developers, and applications to seamlessly query and interact with the Shardeum blockchain.
+## Architecture
 
-## ✨ Key Features
+```text
+MCP client / AI agent / Cursor
+        |
+        v
+Shardeum MCP Server
+        |
+        +-- tool schema
+        +-- request validation
+        +-- RPC adapter
+        +-- error handling
+        |
+        v
+Shardeum RPC endpoint
+        |
+        v
+Structured response to agent
+```
 
-- **Comprehensive RPC Method Support**
-  - Ethereum standard methods
-  - Shardeum-specific network methods
-- **Flexible Blockchain Querying**
-- **Easy Integration with AI Assistants**
-- **Blockchain Connectivity**
-- **Detailed Error Handling**
+## Supported Tool Areas
 
-## 🛠️ Supported Methods
-
-### Ethereum Standard RPC Methods
-
-- Block Information
-
-  - `eth_blockNumber`
-  - `eth_getBlockByHash`
-  - `eth_getBlockByNumber`
-  - `eth_getBlockReceipts`
-
-- Transaction Methods
-
-  - `eth_getTransactionCount`
-  - `eth_getTransactionByHash`
-  - `eth_getTransactionByBlockHashAndIndex`
-  - `eth_getTransactionByBlockNumberAndIndex`
-  - `eth_getTransactionReceipt`
-
-- Account Methods
-  - `eth_getBalance`
-  - `eth_estimateGas`
-  - `eth_chainId`
-
-### Shardeum-Specific Methods
+### Network and Node Inspection
 
 - `shardeum_getNodeList`
 - `shardeum_getNetworkAccount`
 - `shardeum_getCycleInfo`
 
-## 📦 Prerequisites
+### Block and Transaction Inspection
 
-- Node.js 18.x or higher
-- Basic understanding of blockchain technologies
+- `eth_blockNumber`
+- `eth_getBlockByHash`
+- `eth_getBlockByNumber`
+- `eth_getBlockReceipts`
+- `eth_getTransactionByHash`
+- `eth_getTransactionReceipt`
+- `eth_getTransactionCount`
 
-### Connecting with Cursor
+### Account and Execution Queries
 
-1. Clone the repo and do an npm install
-2. Open Cursor
-3. Go to Cursor Settings
-4. Scroll to "MCP"
-5. Click "Add new MCP server"
-6. Enter details:
+- `eth_getBalance`
+- `eth_estimateGas`
+- `eth_chainId`
+
+## Cursor Integration
+
+Clone the repo, install dependencies, and register the MCP server:
 
 ```bash
+npm install
+```
+
+Cursor MCP config:
+
+```json
 {
   "mcpServers": {
-    "shm-mcp": {
+    "shardeum-mcp": {
       "command": "node",
-      "args": [
-        "path_to\\shardeum-mcp-server\\index.js"
-      ]
+      "args": ["path_to/shardeum-mcp-server/index.js"]
     }
   }
 }
 ```
 
-## 🔍 Example Queries
+Example prompts:
 
-### Checking Balance
+```text
+What is the current Shardeum block number?
+List available network nodes and summarize their state.
+Fetch the receipt for this transaction and explain the result.
+Inspect this account balance and transaction count.
+```
 
-Ask Cursor:
+## Configuration
 
-- "What is the balance of 0x1234... on Shardeum?"
-- "Check ETH balance for this address"
+Set the RPC endpoint in the server configuration or update the `rpcUrl` constant for your target environment.
 
-### Exploring Transactions
+## Docker
 
-- "Show details for transaction 0x5678..."
-- "Analyze the latest block on Shardeum"
+```bash
+docker build -t shardeum-mcp-server .
+docker run --rm shardeum-mcp-server
+```
 
-## 🤝 Contributing
+## Why This Is Non-Trivial
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes
-4. Push to the branch
-5. Create a pull request
+MCP servers give agents operational access to external systems. This project converts distributed-system RPC calls into explicit tool schemas, making agent actions easier to validate, debug, and constrain compared with free-form shell or HTTP access.
 
-## 📄 Configuration
+## Roadmap
 
-To use a different RPC endpoint, set the constant rpcUrl to a different value
-
-### 🐛 Troubleshooting
-
-- Ensure Node.js 18.x is installed
-- Check network connectivity
-- Verify RPC endpoint accessibility
-- Update to the latest version
-
-## 🗺️ Roadmap
-
-- [ ] Add more networks for accessibility
-- [ ] Make it write friendly to execute transactions
-- [ ] Enhance error handling
-- [ ] Improve performance
-- [ ] Expand tool capabilities
-
-## 📊 Supported Networks
-
-- Shardeum Local
-- More networks coming soon!
+- Expand supported network methods
+- Add write-safe transaction workflows with explicit confirmation gates
+- Improve typed responses and validation
+- Add broader distributed-system diagnostics
+- Add more deployment examples for MCP-compatible clients
